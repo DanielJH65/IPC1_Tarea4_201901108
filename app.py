@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from flask_api import status
-import json
+import json, os
 from Pelicula import Pelicula
 
 app = Flask(__name__)
@@ -80,4 +80,5 @@ def eliminarPelicula():
     return jsonify({'mensaje': 'Error, la pelicula no existe en la lista de peliculas'}), status.HTTP_400_BAD_REQUEST
 
 if __name__ == '__main__':
-    app.run(debug = True, host='0.0.0.0', port = '3000')
+    puerto = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port = puerto)
