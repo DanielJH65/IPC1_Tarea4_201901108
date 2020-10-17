@@ -30,7 +30,7 @@ def agregarPelicula():
     return jsonify({'mensaje': 'Satisfactorio, la pelicula se agrego correctamente'})
 
 @app.route('/obtenerPeliculas', methods = ['GET'])
-def ontenerFunciones():
+def ontenerPeliculas():
     json_peliculas = []
     global peliculas
     for pelicula in peliculas:
